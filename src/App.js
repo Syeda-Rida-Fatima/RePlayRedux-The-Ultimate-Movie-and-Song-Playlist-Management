@@ -1,4 +1,4 @@
-import "./styles.css";
+import './style.css';
 import { useDispatch } from "react-redux";
 import MoviePlaylist from "./components/MoviePlaylist";
 import SongPlaylist from "./components/SongPlaylist";

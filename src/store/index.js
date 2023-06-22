@@ -1,14 +1,14 @@
-import "bulma/css/bulma.css";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import App from "./App";
-import { store } from "./store";
+import { configureStore } from "@reduxjs/toolkit";
+import { songsReducer, addSong, removeSong } from "./slices/songsSlice";
+import { moviesReducer, addMovie, removeMovie } from "./slices/movieSlice"
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+import { reset } from "./actions";
 
-root.render(
-    <Provider store={store}>
-        <App />
-    </Provider>
-);
+const store = configureStore({
+    reducer: {
+        songs: songsReducer,
+        movies: moviesReducer
+    }
+});
+
+export { store, reset, addSong, removeSong, addMovie, removeMovie };
